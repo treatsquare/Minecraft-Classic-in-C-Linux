@@ -4,7 +4,7 @@
 
 #include "../include/GL/glew.h"
 #include "../include/GLFW/glfw3.h"
-#include <OpenGL/gl.h>
+#include <GL/gl.h>
 
 #include "../include/mc/Shader.h"
 #include "../include/mc/Render.h"

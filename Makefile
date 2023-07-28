@@ -1,6 +1,10 @@
-CC=gcc
-CFLAGS=-O2 -Llib -lglfw3 -lGLEW  -framework Cocoa -framework IOKit -framework OpenGL -o bin/game -ferror-limit=69420
-bin/minecraft: src/main.c
-	$(CC) src/main.c $(CFLAGS)
-run:
+CC=clang
+CFLAGS = -Iinclude $(shell pkg-config --cflags glfw3 glew)
+LIBS = $(shell pkg-config --libs glfw3 glew) -lGL -lm -lpthread -ldl
+
+bin/game: src/main.c
+	$(CC) $(CFLAGS) src/main.c -o bin/game $(LIBS)
+
+.PHONY: run
+run: bin/game
 	cd bin && ./game
